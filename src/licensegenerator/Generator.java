@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 *
 * @author igorbashka
 */
-public class test {
+public class Generator {
 /**Project for generating licensing for
 * containerCalculator software
 * @param args the command line arguments
@@ -45,10 +45,15 @@ return hexEncode;
 public String returnKey(String uniqueId, String passphrase) throws NoSuchAlgorithmException{
     String keyMessage = generateHex(uniqueId,"MD5")+generateHex(passphrase, "SHA1");
     String key = "";
-    int [] keyKeys = {1, 3, 5, 9, 4, 2, 7, 11, 12, 21, 13, 17, 14, 15, 16, 18, 8, 0};
+    int [] keyKeys = {1, 29, 5, 9, 57, 2, 7, 11, 51, 67, 42, 17, 35, 70, 40, 18, 8, 0};
     for (int i=0; i<keyKeys.length; i++){
+        if(i%3 == 0 && i!=0){ 
+        key+="-";        
         key+=keyMessage.charAt(keyKeys[i]);
+        }
+        else
+            key+=keyMessage.charAt(keyKeys[i]);
     }
-    return keyMessage;
+    return keyMessage+"\n"+key;
   }
 }

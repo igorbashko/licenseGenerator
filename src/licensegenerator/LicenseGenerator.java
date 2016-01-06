@@ -16,7 +16,7 @@ public class LicenseGenerator{
 */
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-    test testYo = new test();
-       System.out.println(testYo.returnKey("234hgfhfghfghgf1", "chechrgdfgfd"));
+    Generator testYo = new Generator();
+       System.out.println(testYo.returnKey("234", "12io"));
    }
 }
