@@ -48,8 +48,6 @@ public String returnKey(String uniqueId, String passphrase){
     String keyMessage;
     try {
         keyMessage = generateHex(uniqueId,"MD5")+generateHex(passphrase, "SHA1");
-    
-    
     String key = "";
     int [] keyKeys = {1, 29, 5, 9, 57, 2, 7, 11, 51, 67, 42, 17, 35, 70, 40, 18, 8, 0};
     for (int i=0; i<keyKeys.length; i++){
@@ -60,7 +58,7 @@ public String returnKey(String uniqueId, String passphrase){
         else
             key+=keyMessage.charAt(keyKeys[i]);
     }
-        return keyMessage+"\n"+key;
+        return key;
     }catch(NoSuchAlgorithmException ex){
         ex.printStackTrace();
         return "Something went wrong in hash generating";
