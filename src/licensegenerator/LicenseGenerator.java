@@ -5,6 +5,7 @@
 */
 package licensegenerator;
 import java.security.NoSuchAlgorithmException;
+import infoReader.Reader;
 /**
 *
 * @author igorbashka
@@ -16,7 +17,8 @@ public class LicenseGenerator{
 */
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
+    Reader reader = new Reader("license1.txt","license2.txt", "testPas2");    
     Generator testYo = new Generator();
-       System.out.println(testYo.returnKey("234", "12io"));
+       System.out.println(testYo.returnKey(reader.returnInfo(), "testPas"));
    }
 }
